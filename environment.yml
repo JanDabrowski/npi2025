@@ -8,6 +8,8 @@ dependencies:
   - pytest
   - flask
   - requests
+  - numpy
+  - pandas
   - pydantic
   - uvicorn
   - fastapi
