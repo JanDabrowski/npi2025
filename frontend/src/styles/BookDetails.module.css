@@ -1,0 +1,76 @@
+/* src/styles/BookDetails.module.css */
+
+/* Kontener strony */
+.pageContainer {
+    background-color: #f7f7f7;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Nagłówek książki */
+.pageContainer h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #8e44ad;
+    margin-bottom: 20px;
+}
+
+/* Opis książki */
+.pageContainer p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Przycisk powrotu */
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #8e44ad;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    color: #5a2e89;
+}
+
+/* Gdy książka nie istnieje */
+.notFound {
+    font-size: 1.5rem;
+    color: red;
+    text-align: center;
+}
+
+.rentButton {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #2d8f41;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .rentButton:hover {
+    background-color: #237233;
+  }
+
+  .success {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }

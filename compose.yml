@@ -1,0 +1,57 @@
+services:
+
+  app_backend:
+    container_name: backend
+    build: backend
+    ports:
+      - 80:80
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passwd
+      SECRET_KEY: siemanoKolano123
+    depends_on:
+      - app_database
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /project
+
+  app_frontend:
+    container_name: frontend
+    build: frontend
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+        - action: rebuild
+          path: ./frontend/package.json
+
+  app_database:
+    container_name: database
+    image: postgres:17.4-alpine
+    environment:
+      POSTGRES_PASSWORD: passwd
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data
+
+  app_pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:9.1
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: passwd
+    ports:
+      - 8080:80
+    volumes:
+      - pgadmin_vol:/var/lib/pgadmin
+
+volumes:
+  pgadmin_vol:
+  postgres_vol:

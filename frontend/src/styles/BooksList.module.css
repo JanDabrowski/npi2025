@@ -1,0 +1,189 @@
+/* Kontener strony */
+.pageContainer {
+    background-color: #f7f7f7;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+/* Nagłówek */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #8e44ad;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ikona konta */
+.userAccountButton {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.userAccountButton:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.userAccountButton span {
+    position: absolute;
+    bottom: -20px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Filtry i sortowanie */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.filters select {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Kontener książek */
+.booksContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+/* Kafelek książki */
+.bookCard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.bookCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bookCard h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bookCard p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.bookCard strong {
+    color: #8e44ad;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Książka niedostępna */
+.unavailable {
+    background-color: #ffe5e5;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .booksContainer {
+        padding: 0 10px;
+    }
+
+    .bookCard {
+        height: auto;
+    }
+}
+
+.rentButton {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #2d8f41;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .rentButton:hover {
+    background-color: #237233;
+  }

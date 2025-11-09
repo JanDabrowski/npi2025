@@ -1,0 +1,89 @@
+/* src/styles/Contact.module.css */
+
+/* Kontener strony */
+.contactContainer {
+    background-color: #f7f7f7;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Nagłówek */
+.contactContainer h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #8e44ad;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Informacje kontaktowe */
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.contactItem {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contactItem h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8e44ad;
+    margin-bottom: 10px;
+}
+
+.contactItem p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Dodatkowa stylizacja kontenera na zawartość strony */
+.contactContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1516370999900-9bc72835eddd');
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* Stylizacja na małych ekranach */
+@media (max-width: 768px) {
+    .contactContainer h1 {
+        font-size: 2.5rem;
+    }
+
+    .contactItem {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .contactItem h2 {
+        font-size: 1.3rem;
+    }
+
+    .contactItem p {
+        font-size: 1rem;
+    }
+}

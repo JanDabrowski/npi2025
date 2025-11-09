@@ -1,0 +1,48 @@
+.pageContainer {
+    padding: 20px;
+  }
+  
+  .loading {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .error {
+    color: red;
+    font-size: 16px;
+  }
+  
+  .noRentals {
+    font-size: 18px;
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .rentalsTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .rentalsTable th,
+  .rentalsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .rentalsTable th {
+    background-color: #f4f4f4;
+  }
+  
+  .rentalsTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .returnBookBtn {
+    padding: 0.5rem
+  }
