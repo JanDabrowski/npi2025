@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -22,8 +23,11 @@ jobs:
         use-mamba: true
         miniforge-variant: Miniforge3
 
-    - name: Install pytest
-      run: conda install -n npi2025 pytest -y
+    - name: Check environment
+      run: |
+        which python
+        python --version
+        conda list | grep pytest || echo "pytest not installed"
 
     - name: Run tests
-      run: pytest tests/pytest/
+      run: conda run -n npi2025 pytest tests/pytest/
