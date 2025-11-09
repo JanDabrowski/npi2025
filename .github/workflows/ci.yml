@@ -30,4 +30,4 @@ jobs:
         conda list | grep pytest || echo "pytest not installed"
 
     - name: Run tests
-      run: conda run -n npi2025 pytest tests/pytest/
+      run: conda run -n npi2025 pytest backend/tests/pytest/
