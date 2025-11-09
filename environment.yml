@@ -6,14 +6,17 @@ dependencies:
   - python=3.12
   - pip
   - pytest
-  - flask
-  - requests
   - numpy
   - pandas
-  - pydantic
-  - uvicorn
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - requests
+  - flask
   - fastapi
+  - uvicorn
   - aiohttp
+  - pydantic
   - pip:
-      - docker
       - python-dotenv
+      - docker
