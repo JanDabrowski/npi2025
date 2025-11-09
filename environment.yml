@@ -1,82 +1,16 @@
-stages:
-  - prepare
-  - static_checks
-  - unittest
-  - build
-
-variables:
-  PYTHON_IMAGE: python:3.12-alpine
-  JS_IMAGE: node:22-alpine
-
-.rules:
-  - &on_backend_changes
-    changes:
-      - backend/app/*
-      - backend/test/*
-  - &on_frontend_changes
-    changes:
-      - frontend/src/*
-      - frontend/test/*
-
-backend_ruff:
-  stage: static_checks
-  image: $PYTHON_IMAGE
-  rules:
-    - *on_backend_changes
-  before_script:
-    - pip install ruff
-  script:
-    - ruff check backend/app
-
-backend_mypy:
-  stage: static_checks
-  image: $PYTHON_IMAGE
-  rules:
-    - *on_backend_changes
-  before_script:
-    - pip install -r backend/requirements/typing.txt
-  script:
-    - mypy backend/app
-  allow_failure: true
-
-backend_pytest:
-  stage: unittest
-  image: $PYTHON_IMAGE
-  rules:
-    - *on_backend_changes
-  before_script:
-    - pip install -r backend/requirements/test.txt
-  script:
-    - pytest
-
-frontend_install:
-  stage: prepare
-  image: $JS_IMAGE
-  rules:
-    - *on_frontend_changes
-  script:
-    - cd frontend
-    - npm ci
-  artifacts:
-    paths:
-    - frontend/node_modules
-
-frontend_jslint:
-  stage: static_checks
-  image: $JS_IMAGE
-  needs: ["frontend_install"]
-  rules:
-    - *on_frontend_changes
-  script:
-    - cd frontend
-    - npm run lint
-
-frontend_unittest:
-  stage: unittest
-  image: $JS_IMAGE
-  needs: ["frontend_install"]
-  rules:
-    - *on_frontend_changes
-  script:
-    - cd frontend
-    - npm run test -- --passWithNoTests
+name: npi2025
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyterlab
+  - ipykernel
+  - pip:
+      - notebook
