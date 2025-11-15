@@ -19,9 +19,12 @@ services:
 
   app_frontend:
     container_name: frontend
-    build: frontend
+    build:
+      context: frontend
+      target: prod
     ports:
       - 3000:3000
+      - 80:80
     develop:
       watch:
         - action: sync
