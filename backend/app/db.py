@@ -55,7 +55,6 @@ def register_user(email: str, password: str, *, name: str | None = None, lastnam
 
         hashed_password = hash_password(password)
         user = User(email=email, password_hash=hashed_password)
-        print(email, hashed_password, password)
         session.add(user)
         session.commit()
         return True
