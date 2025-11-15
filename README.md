@@ -1,6 +1,6 @@
-#NOWATORSKI PROJEKT JEDNOSOBOWY - Jan Dąbrowski 49452
+# NOWATORSKI PROJEKT IDYWIDUALNY - Jan Dąbrowski 49452
 
-#Uruchamienie środowiska lokalnego
+# Uruchamienie środowiska lokalnego
 
 ```
 docker compose up --watch --no-attach npi_pgadmin --build
