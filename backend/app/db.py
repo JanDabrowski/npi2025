@@ -14,6 +14,8 @@ from sqlalchemy import JSON as SA_JSON
 from .security import hash_password
 from fastapi import HTTPException, status
 from app import config
+import secrets
+import string
 
 # Engine should live at module scope so it is NOT treated as a model field.
 engine = create_engine(config.DATABASE_CONNECTION_STRING)
@@ -36,6 +38,8 @@ def get_session():
     with Session(engine, expire_on_commit=False) as session:
         yield session
 
+def login_user():
+    return True
 
 def register_user(email: str, password: str, *, name: str | None = None, lastname: str | None = None, group: str | None = None, permissions: list | None = None) -> bool:
     with Session(engine) as session:
@@ -52,7 +56,10 @@ def register_user(email: str, password: str, *, name: str | None = None, lastnam
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Email and password are required",
             )
-
+        if not password:
+            alphabet = string.ascii_letters + string.digits
+            password = ''.join(secrets.choice(alphabet) for _ in range(12))
+        print(password)
         hashed_password = hash_password(password)
         user = User(email=email, password_hash=hashed_password)
         session.add(user)

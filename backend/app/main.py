@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Form
 from typing import Annotated
-from .db import register_user, create_db_and_tables
-
+from .db import register_user, create_db_and_tables, login_user
 app = FastAPI()
 
 
@@ -14,10 +13,17 @@ def on_startup():
 async def root():
     return {"message": "Hello World"}
 
-@app.post("/register")
+@app.post("/create-user")
 async def register(
+    email: Annotated[str, Form()],
+):
+    success = register_user(email)
+    return {"success": success}
+
+@app.get("/login")
+async def login_user(
     email: Annotated[str, Form()],
     password: Annotated[str, Form()],
 ):
-    success = register_user(email, password)
+    success = login_user(email, password)
     return {"success": success}
